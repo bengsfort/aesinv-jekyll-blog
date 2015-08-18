@@ -1,6 +1,5 @@
 var gulp        = require('gulp'),
     /** Utilities */
-    gutil       = require('gulp-util'),
     rename      = require('gulp-rename'),
     size        = require('gulp-filesize'),
     /** CSS */
@@ -17,7 +16,7 @@ var paths = config.paths;
  * @todo this seems kind of hasty. That may be because it's 1am. Investigate.
  */
 
-gulp.task('build-css', function() {
+module.exports = function buildCss () {
 
   return gulp.src(paths.css.dest + 'main.css')
     .pipe(autoprefixer({
@@ -27,5 +26,4 @@ gulp.task('build-css', function() {
     .pipe(rename({ extname: '.min.css' }))
     .pipe(size())
     .pipe(gulp.dest(paths.css.dest));
-
-});
+};

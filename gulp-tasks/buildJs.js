@@ -1,6 +1,5 @@
 var gulp        = require('gulp'),
   /** Utilities */
-    gutil       = require('gulp-util'),
     rename      = require('gulp-rename'),
     size        = require('gulp-filesize'),
   /** JS Specific */
@@ -19,7 +18,7 @@ var paths = config.paths;
  * @todo Extract this to be more dynamic, helper function, specify path, file name, and what tasks to execute.
  */
 
-gulp.task('build-js', function buildJs() {
+module.exports = function buildJs() {
 
   // Build vendor files
   gulp.src(paths.vendor.src + '*.js')
@@ -42,4 +41,5 @@ gulp.task('build-js', function buildJs() {
     .pipe(rename({ extname: '.min.js' }))
     .pipe(size())
     .pipe(gulp.dest(paths.js.dest));
-});
+
+};

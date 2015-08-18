@@ -2,11 +2,16 @@
   "name": "matt-bengston-blog",
   "version": "1.0.0",
   "description": "The Jekyll blog of Matt Bengston.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aesinv/aesinv-jekyll-blog.git"
+  },
+  "homepage": "http://aesinv.com",
   "main": "Gulpfile.js",
   "scripts": {
     "test": "gulp"
   },
-  "author": "Matt Bengston <matt@aesinv.com>",
+  "author": "Matt Bengston <matt@aesinv.com> (http://mattbengston.com)",
   "license": "ISC",
   "paths": {
     "src": "project/",
@@ -35,6 +40,7 @@
   "dependencies": {
     "browser-sync": "^2.8.2",
     "gulp": "^3.9.0",
+    "gulp-auto-task": "0.0.1",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-concat": "^2.6.0",
     "gulp-filesize": "0.0.6",
@@ -47,7 +53,6 @@
     "gulp-watch": "^4.3.4",
     "imagemin-pngquant": "^4.1.2",
     "require-dir": "^0.3.0",
-    "run-sequence": "^1.1.2",
-    "yargs": "^3.19.0"
+    "run-sequence": "^1.1.2"
   }
 }

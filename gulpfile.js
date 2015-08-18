@@ -1,49 +1,38 @@
-var gulp        = require('gulp'),
-    spawn       = require('child_process').spawn,
+var gulp          = require('gulp'),
+    spawn         = require('child_process').spawn,
 
     /** Utils */
-    watch       = require('gulp-watch'),
-    browserSync = require('browser-sync').create(),
-    requireDir  = require('require-dir'),
-    argsv       = require('yargs').argsv,
-    runSequence = require('run-sequence'),
-    gutil       = require('gulp-util'),
+    watch         = require('gulp-watch'),
+    browserSync   = require('browser-sync').create('jekyll'),
+    requireDir    = require('require-dir'),
+    runSequence   = require('run-sequence'),
+    gutil         = require('gulp-util'),
+    gulpAutoTask  = require('gulp-auto-task'),
 
     /** Config */
-    config = require('./package.json');
+    config        = require('./package.json');
 
 var paths = config.paths;
 
 /** Import Main Tasks */
-var tasks = requireDir('gulp-tasks');
-
-/** Helper Utils*/
-var buildJekyll = function buildJekyll(env, callback) {
-  var opts = ['build', '--config'];
-  gutil.log('Running Jekyll build.');
-
-  if (env === 'prod') opts.push('_config.build.yml');
-  else opts.push('_config.yml');
-
-  var jekyll = spawn('jekyll', opts, {
-    stdio: 'inherit'
-  });
-
-  return jekyll.on('exit', function(code) {
-    return callback(code === 0 ? null : 'ERROR: Jekyll process exited with code: '+code);
-  });
-};
+// Require them so they can be called as functions
+var utils = requireDir('gulp-tasks');
+// Automagically set up tasks
+gulpAutoTask('{*,**/*}.js', {
+  base: './gulp-tasks',
+  gulp: gulp
+});
 
 /** Helper Tasks */
 gulp.task('build', function(callback) {
-  return buildJekyll('serve', callback);
+  return utils.buildJekyll(callback, 'serve');
 });
 
 gulp.task('build-prod', function(callback) {
-  return buildJekyll('prod', callback);
+  return utils.buildJekyll(callback, 'prod');
 });
 
-gulp.task('build-assets', ['build-css', 'build-js', 'optimize-img']);
+gulp.task('build-assets', ['buildCss', 'buildJs', 'optimizeImg']);
 
 /**
  * BrowserSync
@@ -76,11 +65,11 @@ gulp.task('serve', ['browser-sync'], function() {
   });
 
   watch([paths.js.src +'*.js', paths.vendor.src +'*.js'], function() {
-    gulp.start('build-js', ['browser-reload']);
+    gulp.start('buildJs', ['browser-reload']);
   });
 
   watch([paths.img.src +'*', paths.img.src +'**/*'], function() {
-    gulp.start('optimize-img', ['browser-reload']);
+    gulp.start('optimizeImg', ['browser-reload']);
   });
 
   watch([
