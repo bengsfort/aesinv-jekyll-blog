@@ -1,5 +1,5 @@
 # The Blog of Matt Bengston
-This is the source for my blog, located at <aesinv.com>. It runs on [Jekyll][], a static-site generator, with added development functionality via [Gulp][].
+This is the source for my blog, located at [aesinv.com](http://aesinv.com). It runs on [Jekyll][], a static-site generator, with added development functionality via [Gulp][].
 
 ## Dependencies
 - [Bower][]: Front end dependency manager (full integration still WIP)
