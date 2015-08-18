@@ -46,7 +46,8 @@ category_dir: /
 tag_dir: /tag/
 
 # --------------------------------
-# Includes
+# Includes & Excludes
+exclude: [css/]
 include: [js/,fonts/,icons/]
 
 # --------------------------------

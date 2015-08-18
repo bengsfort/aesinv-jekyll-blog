@@ -1,5 +1,4 @@
 var gulp          = require('gulp'),
-    spawn         = require('child_process').spawn,
 
     /** Utils */
     watch         = require('gulp-watch'),
@@ -10,9 +9,7 @@ var gulp          = require('gulp'),
     gulpAutoTask  = require('gulp-auto-task'),
 
     /** Config */
-    config        = require('./package.json');
-
-var paths = config.paths;
+    paths        = require('./package.json').paths;
 
 /** Import Main Tasks */
 // Require them so they can be called as functions
@@ -28,50 +25,50 @@ gulp.task('build', function(callback) {
   return utils.buildJekyll(callback, 'serve');
 });
 
-gulp.task('build-prod', function(callback) {
+gulp.task('build:prod', function(callback) {
   return utils.buildJekyll(callback, 'prod');
 });
 
-gulp.task('build-assets', ['buildCss', 'buildJs', 'optimizeImg']);
+gulp.task('build:assets', ['buildCss', 'buildJs', 'optimizeImg']);
 
 /**
  * BrowserSync
  */
 // Init server to build directory
-gulp.task('browser-sync', function() {
+gulp.task('browser', function() {
   browserSync.init({
     server: "./" + paths.build,
   });
 });
 
 // Force reload
-gulp.task('browser-reload', function() {
+gulp.task('browser:reload', function() {
   browserSync.reload();
 });
 
 /**
  * Main Builds
  */
-gulp.task('serve', ['browser-sync'], function() {
-  runSequence('build', ['build-assets']);
-
+gulp.task('serve', ['browser'], function() {
+  runSequence('build', ['build:assets']);
+  // CSS/SCSS
   watch([
         paths.src +'fonts/*',
         paths.sass.src +'*.scss',
         paths.css.src +'main.scss',
         paths.sass.src +'**/*.scss',
   ], function() {
-    runSequence('build', ['build-assets', 'browser-reload']);
+    runSequence('buildCss', ['browser:reload']);
   });
-
+  // JS
   watch([paths.js.src +'*.js', paths.vendor.src +'*.js'], function() {
-    gulp.start('buildJs', ['browser-reload']);
+    gulp.start('buildJs', ['browser:reload']);
   });
-
+  // Images
   watch([paths.img.src +'*', paths.img.src +'**/*'], function() {
-    gulp.start('optimizeImg', ['browser-reload']);
+    gulp.start('optimizeImg', ['browser:reload']);
   });
-
+  // Markup / Posts/ Data
   watch([
         paths.src +'*',
         paths.src +'_data/*',
@@ -83,10 +80,10 @@ gulp.task('serve', ['browser-sync'], function() {
         paths.src +'_includes/**/*.svg',
         paths.src +'_includes/**/*.html',
   ], function() {
-    runSequence('build', ['build-assets', 'browser-reload']);
+    runSequence('build', ['build:assets', 'browser:reload']);
   });
 });
 
 gulp.task('deploy', function() {
-  runSequence('build-prod', ['build-assets']);
+  runSequence('build:prod', ['build:assets']);
 });

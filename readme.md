@@ -19,7 +19,7 @@ This is the source for my blog, located at <aesinv.com>. It runs on [Jekyll][], 
     + `npm install`
 
 ## Project Workflow
-### `gulp build-assets`
+### `gulp build:assets`
 Concatenates, minifies, and optimizes all site JavaScript, runs the [Jekyll][]-built stylesheet through an auto-prefixer and minifier, then optimizes all published images within the `/project/img/` directory.
 
 ### `gulp serve`

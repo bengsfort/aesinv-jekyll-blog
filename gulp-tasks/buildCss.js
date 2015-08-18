@@ -3,6 +3,7 @@ var gulp        = require('gulp'),
     rename      = require('gulp-rename'),
     size        = require('gulp-filesize'),
     /** CSS */
+    sass          = require('gulp-sass'),
     minifyCss     = require('gulp-minify-css'),
     autoprefixer  = require('gulp-autoprefixer'),
     /** Config */
@@ -18,7 +19,10 @@ var paths = config.paths;
 
 module.exports = function buildCss () {
 
-  return gulp.src(paths.css.dest + 'main.css')
+  return gulp.src(paths.css.src + 'main.scss')
+    .pipe(sass({
+      includePaths: [paths.sass.src]
+    }).on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['last 2 versions']
     }))
