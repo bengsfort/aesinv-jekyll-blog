@@ -1,0 +1,30 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-col-wrapper">
+    <span itemprop="author" itemscope itemType="http://schema.org/Person">
+      <meta itemprop="name" content="Matt Bengston" />
+    </span>
+    {% include components/social-list.html %}
+    Copyright &copy; Matt Bengston, 2015.
+  </div>
+
+  <meta itemprop="copyrightYear" content="2015" />
+  <meta itemprop="copyrightHolder" content="Matt Bengston" />
+
+</footer>
+
+
+{% if site.gdq_event %}
+  {% include components/gdq-banner.html %}
+{% endif %}
+
+<script src="/js/vendor.min.js"></script>
+<script src="/js/main.min.js"></script>
+{% if completelyIrrelevantRightNow %}
+    <script type="text/javascript">
+      var disqus_shortname = 'aesinv';
+      (function() {
+        var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//'+disqus_shortname+'.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+{% endif %}

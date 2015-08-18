@@ -1,0 +1,61 @@
+/**
+ * Social Media List Component
+ */
+.social-media-list {
+    list-style: none;
+    margin-left: 0;
+
+    > li {
+    	display: inline-block;
+
+        a {
+            display: block;
+        }
+
+        &+li {
+            margin-left: 8px;
+        }
+
+        .icon {
+            display: table-cell;
+
+            > svg {
+                display: block;
+
+                path {
+                    fill: #999;
+                }
+            }
+
+            &.icon--spotify {
+                svg {
+                    width: 15px;
+                    height: 15px;
+
+                    path {
+                        fill: #FFF;
+                    }
+
+                    circle {
+                        fill: #999;
+                    }
+                }
+            }
+
+            &.icon--rss {
+              svg {
+                width: 14px;
+                height: 14px;
+                rect {
+                  stroke: none;
+                  fill: #999;
+                }
+                circle, path {
+                  stroke: none;
+                  fill: #FFF;
+                }
+              }
+            }
+        }
+    }
+}

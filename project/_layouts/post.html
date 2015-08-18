@@ -1,0 +1,16 @@
+---
+layout: full-width
+---
+<div class="post" itemscope itemType="http://schema.org/BlogPosting">
+  {% include components/post-header.html %}
+
+  <div class="wrapper">
+      <article class="post-content" itemprop="articleBody">
+        {{ content }}
+      </article>
+
+      {% include components/post-footer.html %}
+
+      {% include components/comments.html %}
+  </div>
+</div>

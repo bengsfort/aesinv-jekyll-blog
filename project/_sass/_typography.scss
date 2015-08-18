@@ -1,0 +1,109 @@
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-family: $headline-font-family;
+    font-weight: 300;
+}
+
+
+h1 {
+    font-size: $h1-size;
+    color: #424242;
+}
+
+h2 {
+    font-size: $h2-size;
+    color: $brand-blue-color;
+//    color: #404040;
+}
+
+h3 {
+    font-size: $h3-size;
+    color: #383838;
+}
+
+h4 {
+    font-size: $h4-size;
+    color: #333;
+}
+
+h5 {
+    font-size: $h5-size;
+    color: #404040;
+}
+
+
+/**
+ * Links
+ */
+a {
+    color: $brand-blue-color;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:visited {
+        color: $brand-color;
+    }
+
+    &:hover {
+        color: $text-color;
+        text-decoration: underline;
+    }
+}
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-family: $code-font-family;
+    font-size: 15px;
+    border: 1px solid #222;
+    border-radius: 3px;
+    background-color: #282828;
+    color: #f8f8f2;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: scroll;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+/**
+ * Paragraphs
+ */
+
+.excerpt {
+    font-size: 1.35em;
+    line-height: 1.5;
+    color: #383838;
+}
+
+.post-content {
+  p {
+    font-size: 17px;
+    line-height: 2;
+  }
+}
+
+
+/**
+ * Helper classes
+ */
+
+.blue {
+  font-style: normal;
+  color: $brand-blue-color;
+}

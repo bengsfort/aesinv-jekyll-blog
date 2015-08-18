@@ -1,0 +1,22 @@
+<meta itemprop="datePublished" content={{ page.date | date: "%Y-%m-%dT%Rz" }} />
+<div class="{% if page.feature %}feature-header{% else %}post-header{% endif %}">
+    {% unless page.feature %}<div class="wrapper">{% endunless %}
+        <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+        {% if page.feature %}
+            {% if page.featureico %}
+              <meta itemprop="thumbnailUrl" content="{{ site.url }}/img/{{ page.feature }}" />
+            {% endif %}
+            <img class="post-feature" src="/img/{{ page.feature }}" alt="{{ page.featurealt }}" itemprop="image" />
+        {% else %}
+          <meta itemprop="thumbnailUrl" content="{{ site.url }}/img/headshot-thumb.png" />
+          <meta itemprop="image" content="{{ site.url }}/img/headshot-hi-res.png" />
+        {% endif %}
+    {% unless page.feature %}</div>{% endunless %}
+</div>
+
+<div class="excerpt">
+    <div class="wrapper">
+        <span class="post-date">{{ page.date | date: "%A, %B %-d, %Y" }}</span>
+        <p itemprop="description">{{ page.excerpt }}</p>
+    </div>
+</div>

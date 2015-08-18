@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body itemscope itemType="http://schema.org/Blog">
+    {% include header.html %}
+
+    <main class="full-content" role="main">
+        {{ content }}
+    </main>
+
+    {% include sidebar.html %}
+    {% include footer.html %}
+  </body>
+
+</html>

@@ -1,0 +1,35 @@
+/**
+ * Expanding Links
+ */
+
+// Set max-width within the scope of containers
+
+.expanding-link {
+    display: inline-block;
+    width: auto;
+    max-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    vertical-align: bottom;
+    transition: max-width 0.25s;
+
+    span[data-expanding-text]:after {
+        content: attr(data-expanding-text);
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: bottom;
+        max-width: 0;
+        transition: max-width 0.25s;
+    }
+}
+
+.expanding-link:hover {
+    max-width: 150px;
+    transition: max-width 0.25s;
+
+    span[data-expanding-text]:after {
+        content: attr(data-expanding-text);
+        max-width: 150px;
+        transition: max-width 0.25s;
+    }
+}

@@ -1,0 +1,45 @@
+<div class="site-sidebar">
+   <button class="sidebar-close js-expand" data-expand="body">
+      <span class="close"></span> Collapse Menu
+   </button>
+
+    <ul class="nav-menu visible-phone" id="pages-menu">
+        {% for p in site.pages %}
+            {% if p.title %}
+              {% unless p.title contains 'Category' or p.title contains 'Tag' %}
+                <li class="menu-item {% if page.title == p.title %}active{% endif %}"><a href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a></li>
+              {% endunless %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <div class="list-header visible-phone">Categories</div>
+    <ul class="nav-menu visible-phone" id="categories-menu">
+        {% for category in site.categories %}
+          {% capture categoryName %}{{category | first }}{% endcapture %}
+
+          {% if categoryName == page.category %}
+            {% assign catLinkClass = ' active' %}
+          {% elsif page.isCatPage and categoryName == page.category %}
+            {% assign catLinkClass = ' active' %}
+          {% else %}
+            {% assign catLinkClass = '' %}
+          {% endif %}
+
+          <li class="menu-item{{ catLinkClass }}"><a href="/{{category | first | slugify}}/" rel="tag" title="{{category | first | capitalize}}">{{category | first | capitalize}}</a></li>
+        {% endfor %}
+    </ul>
+
+    <div class="projects-list">
+      <span class="list-header">Latest Projects</span>
+      {% for project in site.data.projects %}
+        <div class="project {{ project.class }}">
+          {% if project.github %}<a href="{{ project.github }}" target="_blank" rel="nofollow" title="View this project on Github">{% endif %}
+            <h3>{{ project.name }}<br /><small>{{ project.stage }}</small></h3>
+          {% if project.github %}</a>{% endif %}
+          <p>{{ project.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+</div>

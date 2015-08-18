@@ -1,0 +1,50 @@
+/**
+ * Post List
+ */
+
+ .post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > article {
+        margin-bottom: $spacing-unit;
+    }
+
+    .post-info {
+      font-size: $small-font-size;
+      color: $grey-color;
+    }
+
+    .post-link {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      font-size: 24px;
+      &:visited {
+        color: lighten($brand-color, 12.5%);
+      }
+    }
+
+    h2, .post-info {
+      display: block;
+      padding-left: 130px;
+      margin-bottom: 0;
+      @include media-query($on-phone) {
+        padding-left: 50px + ($spacing-unit / 2);
+      }
+    }
+
+    .post-category-label {
+      display: inline-block;
+      position: relative;
+      top: -1px;
+      padding: 3px 6px;
+      margin-left: 7px;
+      font-size: 0.75em;
+      text-transform: uppercase;
+      color: #fff;
+      &.development { background-color: $brand-warning; }
+      &.cars { background-color: $brand-green; }
+      &.life { background-color: $brand-yellow; }
+    }
+}

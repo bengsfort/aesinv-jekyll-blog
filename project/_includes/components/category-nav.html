@@ -1,0 +1,17 @@
+<nav id="category-nav">
+  <div class="wrapper">
+    {% for category in site.categories %}
+      {% capture categoryName %}{{category | first }}{% endcapture %}
+
+      {% if categoryName == page.category %}
+        {% assign catLinkClass = 'class="active" ' %}
+      {% elsif page.isCatPage and categoryName == page.category %}
+        {% assign catLinkClass = 'class="active" ' %}
+      {% else %}
+        {% assign catLinkClass = '' %}
+      {% endif %}
+
+      <a {{ catLinkClass }}href="/{{category | first | slugify}}/" rel="tag" title="{{category | first | capitalize}}">{{category | first | capitalize}}</a>
+    {% endfor %}
+  </div>
+</nav>

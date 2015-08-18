@@ -1,0 +1,53 @@
+{
+  "name": "matt-bengston-blog",
+  "version": "1.0.0",
+  "description": "The Jekyll blog of Matt Bengston.",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "author": "Matt Bengston <matt@aesinv.com>",
+  "license": "ISC",
+  "paths": {
+    "src": "project/",
+    "build": "_dist/",
+    "bower": "bower_components/",
+    "vendor": {
+      "src": "project/js/lib/",
+      "dest": "_dist/js/"
+    },
+    "js": {
+      "src": "project/js/",
+      "dest": "_dist/js/"
+    },
+    "sass": {
+      "src": "project/_sass/"
+    },
+    "css": {
+      "src": "project/css/",
+      "dest": "_dist/css/"
+    },
+    "img": {
+      "src": "project/img/",
+      "dest": "_dist/img/"
+    }
+  },
+  "dependencies": {
+    "browser-sync": "^2.8.2",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-filesize": "0.0.6",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.4",
+    "imagemin-pngquant": "^4.1.2",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.2",
+    "yargs": "^3.19.0"
+  }
+}

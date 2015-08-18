@@ -1,0 +1,12 @@
+---
+layout: default
+isCatPage: true
+---
+
+<h1 class="page-heading"><a href="/">Posts</a> / {{ site.title }} on {{ page.category |  capitalize }}</h1>
+
+<section class="post-list">
+  {% for post in site.categories.[page.category] %}
+    {% include components/post-list-item.html %}
+  {% endfor %}
+</section>

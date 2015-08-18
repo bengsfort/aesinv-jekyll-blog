@@ -1,0 +1,16 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+---
+
+<div class="projects-list">
+  {% for project in site.data.projects %}
+    <div class="project {{ project.class }}">
+      {% if project.github %}<a href="{{ project.github }}" target="_blank" rel="nofollow" title="View this project on Github">{% endif %}
+        <h3>{{ project.name }}<br /><small>{{ project.stage }}</small></h3>
+      {% if project.github %}</a>{% endif %}
+      <p>{{ project.description }}</p>
+    </div>
+  {% endfor %}
+</div>

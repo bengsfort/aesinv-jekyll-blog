@@ -1,0 +1,9 @@
+---
+layout: default
+---
+
+<section class="post-list">
+    {% for post in site.posts %}
+      {% include components/post-list-item.html %}
+    {% endfor %}
+</section>

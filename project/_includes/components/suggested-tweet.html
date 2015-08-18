@@ -1,0 +1,13 @@
+<div class="suggested-tweet">
+  <h3>Spread the Word</h3>
+  {% capture suggested_tweet %}https://twitter.com/intent/tweet?text={% if page.suggested_tweet.text %}{{ page.suggested_tweet.text | cgi_escape }}{% else %}{{ page.title | cgi_escape }}{% endif %}&amp;url={{ site.url }}{{ page.url }}&amp;via={{ site.twitter }}{% if page.suggested_tweet.related %}&amp;related={{ page.suggested_tweet.related | join: ',' | cgi_escape }}{% else %}&amp;related={{ site.twitter }}{% endif %}{% if page.suggested_tweet.hashtags %}&amp;hashtags={{ page.suggested_tweet.hashtags | join: ',' | cgi_escape }}{% endif %}{% if page.suggested_tweet.in_reply_to %}&amp;in_reply_to={{ page.suggested_tweet.in_reply_to }}{% endif %}{% endcapture %}
+  <a href="{{ suggested_tweet }}" class="suggested-tweet--bubble">
+    <span class="suggested-tweet--bubble__text">{% if page.suggested_tweet.text %}{{ page.suggested_tweet.text }}{% else %}{{ page.title }}{% endif %}</span>
+    {% if page.suggested_tweet.hashtags %}
+      {% for hashtag in page.suggested_tweet.hashtags %}
+        <span class="suggested-tweet--hashtag">#{{ hashtag }}</span>
+      {% endfor %}
+    {% endif %}
+  </a>
+  <p class="suggested-tweet--text"><a href="{{ suggested_tweet }}" class="suggested-tweet--link"><span class="suggested-tweet--icon">{% include svg/tag.svg %}</span>Click to Tweet</a> <small>(you may edit before posting.)</small></p>
+</div>

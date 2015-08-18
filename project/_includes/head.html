@@ -1,0 +1,57 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  {% if page.title %}
+    {% if page.isCatPage %}{% capture metaTitle %}{{ site.title }} on {{ page.category | capitalize }}{% endcapture %}
+    {% elsif page.isTagPage %}{% capture metaTitle %}{{ site.title }} on {{ page.tag | capitalize }}{% endcapture %}
+    {% else %}{% capture metaTitle %}{{ page.title }}{% endcapture %}
+    {% endif %}
+  {% else %}{% capture metaTitle %}Cars, Development and Life by {{ site.title }}{% endcapture %}
+  {% endif %}
+  {% capture metaDescription %}{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+  {% if page.feature %}{% capture metaPicture %}{{ "/img/" | prepend: site.baseurl | prepend: site.url }}{{ page.feature }}{% endcapture %}
+  {% else %}{% capture metaPicture %}{{ "/img/headshot-hi-res.png" | prepend: site.baseurl | prepend: site.url }}{% endcapture %}
+  {% endif %}
+  <title>{{ metaTitle }}</title>
+  <!--// Metadata //-->
+  <meta name="author" content="{{ site.title }}" />
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@deedilus" />
+  <meta name="twitter:creator" content="@deedilus" />
+  <meta name="twitter:title" content="{{ metaTitle }}" />
+  <meta name="twitter:description" content="{{ metaDescription}}" />
+  <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+  <meta name="twitter:image:src" content="{{ metaPicture }}" />
+  <!-- OpenGraph / FB -->
+  <meta name="og:type" content="website" />
+  <meta name="og:title" content="{{ metaTitle }}" />
+  <meta name="og:site_name" content="{{ site.title }}" />
+  <meta name="og:description" content="{{ metaDescription}}" />
+  <meta name="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+  <meta name="og:image" content="{{ metaPicture }}" />
+  <!-- Favicon -->
+  <link rel="icon" href="/img/icons/favicon-32x32.ico" />
+  <!-- iOS -->
+  <link rel="apple-touch-icon" href="/img/icons/touch-icon-iphone.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icons/touch-icon-ipad.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/icons/touch-icon-iphone-retina.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/icons/touch-icon-ipad-retina.png" />
+  <!-- Windows Phone -->
+  <meta name="application-name" content="Matt Bengston on Websites, Cars, and Games"/>
+  <meta name="msapplication-TileColor" content="#000000"/>
+  <meta name="msapplication-square70x70logo" content="/img/icons/ms-icon-square-70x70.png"/>
+  <meta name="msapplication-square150x150logo" content="/img/icons/ms-icon-square-150x150.png"/>
+  <meta name="msapplication-wide310x150logo" content="/img/icons/ms-icon-wide-310x150.png"/>
+  <meta name="msapplication-square310x310logo" content="/img/icons/ms-icon-large-310x310.png"/>
+  <!--// Stylesheets //-->
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  {% if page.isCatPage %}
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }} on {{ page.category }}" href="{{ page.url | replace:'index.html','atom.xml' | prepend: site.baseurl | prepend: site.url }}" />
+  {% else %}
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+  {% endif %}
+</head>

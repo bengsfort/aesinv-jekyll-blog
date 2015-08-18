@@ -1,0 +1,29 @@
+{
+  "name": "matt-bengston-blog",
+  "version": "1.0.0",
+  "authors": [
+    "Matt Bengston <matt.bengston@icfi.com>"
+  ],
+  "description": "The Jekyll blog of Matt Bengston.",
+  "main": "_config.yml",
+  "keywords": [
+    "blog",
+    "jekyll",
+    "static",
+    "site"
+  ],
+  "license": "MIT",
+  "homepage": "http://aesinv.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "classlist": "~2014.12.13",
+    "html5shiv": "~3.7.3",
+    "normalize.css": "~3.0.3"
+  }
+}

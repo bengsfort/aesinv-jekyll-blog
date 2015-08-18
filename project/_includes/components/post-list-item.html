@@ -1,0 +1,22 @@
+<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+  <meta itemprop="datePublished" content={{ post.date | date: "%Y-%m-%dT%Rz" }} />
+  <span itemprop="author" itemscope itemType="http://schema.org/Person"><meta itemprop="name" content="Matt Bengston" /></span>
+  <meta itemprop="description" content="{{ post.excerpt }}" />
+  {% capture keywords %}{{ post.category | capitalize}}{% for tag in post.tags %}, {{ tag | capitalize }}{% endfor %}{% endcapture %}
+  <meta content="{{ keywords }}" itemprop="keywords" />
+
+  {% if post.feature %}
+    {% include components/feature-icon.html %}
+  {% else %}
+    <meta itemprop="thumbnailUrl" content="{{ site.url }}/img/headshot-thumb.png" />
+    <meta itemprop="image" content="{{ site.url }}/img/headshot-hi-res.png" />
+  {% endif %}
+
+  <h2 itemprop="headline">
+    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a>
+  </h2>
+  <div class="post-info">
+    {{ post.date | date: "%b %-d, %Y" }}
+    <span class="post-category-label {{ post.category | slugify }}">{{ post.category | capitalize }}</span>
+  </div>
+</article>

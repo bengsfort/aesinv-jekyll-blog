@@ -1,0 +1,47 @@
+/**
+ * Category Nav Component
+ */
+
+nav#category-nav {
+  background-color: #383838;
+
+  a {
+    display: inline-block;
+    position: relative;
+    padding: .75em .35em;
+    font-size: 1.35em;
+    color: #ebebeb;
+    z-index: 5;
+    perspective: 500px;
+    transition: all 0.3s;
+
+    &:before {
+      content: " ";
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      background-color: darken($brand-blue-color, 6.5%);
+      z-index: -1;
+      transform-style: preserve-3d;
+      transform-origin: 0% 100%;
+      transform: rotateX(274deg) scaleY(1) translateY(20px);
+      transition: opacity 0.01s 0.3s, transform 0.3s, background 0.25s;
+    }
+
+    &:hover,
+    &.active {
+      color: #fff;
+      text-decoration: none;
+      &:before {
+        opacity: 1;
+        background-color: $brand-blue-color;
+        transform: rotateX(360deg) scaleY(1) translateY(0);
+        transition: opacity 0.01s, transform 0.3s, background 0.25s;
+      }
+    }
+  }
+}

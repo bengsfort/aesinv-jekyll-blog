@@ -1,0 +1,11 @@
+/**
+ * Bree Serif font face
+ */
+
+@font-face {
+  font-family: 'Bree Serif';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/fonts/Bree-Serif-regular.woff2') format('woff2'),
+        url('/fonts/Bree-Serif-regular.woff') format('woff');
+}

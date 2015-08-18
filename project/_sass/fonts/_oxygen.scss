@@ -1,0 +1,30 @@
+/**
+ * Oxygen font face
+ */
+
+// 300 weight
+@font-face {
+  font-family: 'Oxygen';
+  font-weight: 300;
+  font-style: normal;
+  src: url('/fonts/Oxygen-300.woff2') format('woff2'),
+        url('/fonts/Oxygen-300.woff') format('woff');
+}
+
+// 400 weight
+@font-face {
+  font-family: 'Oxygen';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/fonts/Oxygen-regular.woff2') format('woff2'),
+        url('/fonts/Oxygen-regular.woff') format('woff');
+}
+
+// 700 weight
+@font-face {
+  font-family: 'Oxygen';
+  font-weight: 700;
+  font-style: normal;
+  src: url('/fonts/Oxygen-700.woff2') format('woff2'),
+        url('/fonts/Oxygen-700.woff') format('woff');
+}

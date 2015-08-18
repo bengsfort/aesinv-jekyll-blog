@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "Test Post #1"
+date:   2015-7-28 11:06:17
+category: life
+excerpt: Jekyll is a very powerful static site generator built from Ruby. This is the generic welcome post.
+---
+
+# First Headline
+If I wanted to do a [link](http://google.com) then I just do that
+
+## Secondary Headline
+You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+
+### Third Headline
+To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+
+Jekyll also offers powerful support for code snippets:
+
+{% highlight javascript %}
+module.exports = function repeat(operation, num) {
+    if (num <= 0) return;
+    operation();
+    return repeat(operation, --num);
+}
+{% endhighlight %}
+
+Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+
+[jekyll]:      http://jekyllrb.com
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-help]: https://github.com/jekyll/jekyll-help

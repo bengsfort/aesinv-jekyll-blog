@@ -1,0 +1,48 @@
+/**
+ * Site footer
+ */
+.site-footer {
+    // background: $grey-color-light;
+    padding: 0 0 $spacing-unit;
+
+    .social-media-list {
+      .icon--github,
+      .icon--twitter,
+      .icon--instagram {
+        &> svg {
+          width: 21px;
+          height: 21px;
+        }
+        path { fill: #383838; }
+      }
+      .icon--spotify > svg {
+        width: 21px !important;
+        height: 21px !important;
+        circle { fill: #383838 !important; }
+        path { fill: $grey-color-light !important; }
+      }
+      .icon--rss > svg {
+        width: 19px !important;
+        height: 21px !important;
+        rect { fill: #383838 !important; }
+        circle, path { fill: $grey-color-light !important; }
+      }
+    }
+}
+
+.contact-list,
+.social-media-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.footer-col-wrapper {
+    width: 320px;
+    margin: 0 auto 50px;
+    padding-top: $spacing-unit;
+    border-top: 2px solid $grey-color-light;
+    text-align: center;
+    font-size: 15px;
+    color: #383838;
+    @extend %clearfix;
+}

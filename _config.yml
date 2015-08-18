@@ -1,0 +1,58 @@
+# --------------------------------
+# Site settings
+title: Matt Bengston
+author: Matt Bengston
+email: matt@aesinv.com
+description: > # this means to ignore newlines until "baseurl:"
+  I'm a web developer that is extremely interested in front end development, enhancing workflows, and isomorphic JavaScript. I currently am a front end developer for ICF Interactive and in charge of web development for Import Image Racing. I also enjoy old Japanese cars and beer.
+
+# --------------------------------
+# Environment Settings
+environment: dev
+baseurl: "" # the subpath of your site, e.g. /blog/
+#url: "http://aesinv.com" # the base hostname & protocol for your site
+url: "http://dev.aesinv.com:4000"
+source: project
+destination: _dist
+
+# --------------------------------
+# Seasonal Support
+seasonal_assets_url: seasonal/
+
+# Games Done Quick Event
+gdq_event: false
+gdq_name: Awesome Games Done Quick 2016
+gdq_description: >
+  AGDQ a giant gaming party extravaganza and it raises money for Doctors Without Borders, an international medical humanitarian organization providing aid in nearly 70 countries.<br /><br />Please tune in, enjoy the stream, and donate.
+gdq_banner: gdq2015.png
+
+# --------------------------------
+# Social Networking
+twitter_username: deedilus
+github_username:  aesinv
+instagram_username: aesinv
+spotify_username: Matt Bengston
+spotify_userid: 1223222935
+
+# --------------------------------
+# Build settings
+markdown: kramdown
+safe: false
+future: true
+paginate: 5
+
+# Category Handling
+category_dir: /
+tag_dir: /tag/
+
+# --------------------------------
+# Includes
+include: [js/,fonts/,icons/]
+
+# --------------------------------
+# Suggested Tweets
+suggested_tweet:
+  url:        'http://aesinv.com'
+  via:        'deedilus'
+  hashtags:   ['Jekyll', 'Blog', 'Web Dev']
+  related:    ['davidensinger']

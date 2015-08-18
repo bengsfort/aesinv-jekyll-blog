@@ -1,0 +1,51 @@
+/**
+ * Post Footer
+ */
+
+.post-meta {
+  margin-bottom: 30px;
+}
+
+.post-author {
+  margin-bottom: 30px;
+}
+
+.post-organization {
+  padding: 0.5em 1em;
+  background: $grey-color-light;
+
+  .icon {
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    width: 20px;
+    height: auto;
+    margin-right: .25em;
+    polygon, path, rect {
+      fill: #383838;
+    }
+  }
+
+  a {
+    &, a:visited {
+      color: $brand-color;
+    }
+    &:hover {
+      color: $brand-blue-color;
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
+}
+
+.post-category {
+  margin-right: 1.2em;
+}
+
+.post-tags {
+  .icon {
+    top: 2px;
+    margin-right: 0;
+    transform: rotateZ(45deg);
+  }
+}

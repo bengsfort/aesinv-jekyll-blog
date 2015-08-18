@@ -1,0 +1,19 @@
+<section class="post-meta">
+
+    <meta itemprop="url" content="{{ site.url }}{{ page.url }}" />
+    <div class="post-author">
+        ~ <span class="byline-author" itemprop="author" itemscope itemType="http://schema.org/Person"><span itemprop="name">Matt Bengston</span></span>
+    </div>
+    <div class="post-organization">
+        {% capture keywords %}{{ page.category | capitalize}}{% for tag in page.tags %}, {{ tag | capitalize }}{% endfor %}{% endcapture %}
+        <meta content="{{ keywords }}" itemprop="keywords" />
+        {% unless page.category == empty %}
+            <span class="post-category">{% include svg/category.svg %} <a href="/{{page.category | slugify}}/" rel="tag">{{ page.category | capitalize }}</a></span>
+        {% endunless %}
+        {% unless page.tags == empty %}
+            <span class="post-tags">
+              {% include svg/tag.svg %}{% for tag in page.tags %}<a href="/tag/{{ tag | slugify }}" rel="tag">#{{ tag | slugify }}</a> {% endfor %}
+            </span>
+        {% endunless %}
+    </div>
+</section>
