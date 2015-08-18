@@ -19,13 +19,13 @@ This is the source for my blog, located at <aesinv.com>. It runs on [Jekyll][], 
     + `npm install`
 
 ## Project Workflow
-### `gulp build:assets`
+#### `gulp build:assets`
 Concatenates, minifies, and optimizes all site JavaScript, runs the [Jekyll][]-built stylesheet through an auto-prefixer and minifier, then optimizes all published images within the `/project/img/` directory.
 
-### `gulp serve`
+#### `gulp serve`
 Creates a local server via [Browsersync][], runs the [Jekyll][] build, runs the `build-assets` task, then watches for any changes within the `/project/` directory. Rebuilds necessary files and refreshes the [Browsersync][] server on changes.
 
-### `gulp deploy`
+#### `gulp deploy`
 Runs the [Jekyll][] build with the production config file, then runs the `build-assets` task to build and optimize all site assets.
 
 ## Project Structure
