@@ -11,6 +11,8 @@ layout: full-width
 
       {% include components/post-footer.html %}
 
-      {% include components/comments.html %}
+      {% if site.env == 'production' %}
+        {% include components/comments.html %}
+      {% endif %}
   </div>
 </div>
