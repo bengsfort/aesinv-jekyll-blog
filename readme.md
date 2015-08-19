@@ -65,6 +65,7 @@ project: Main project source
     + Tags icon on post pages: factor[e] design initiative
 
 ## TODO
+- ~~Create auto-deployment via git~~
 - Add "pinned post" functionality (mostly for cars category, for my post engine resource guide)
 - Add tag cloud of sorts to expandable sidebar
 - Add social share function
