@@ -64,6 +64,11 @@ project: Main project source
     + Category icon on post pages: Shai Rilov
     + Tags icon on post pages: factor[e] design initiative
 
+## TODO
+- Add "pinned post" functionality (mostly for cars category, for my post engine resource guide)
+- Add tag cloud of sorts to expandable sidebar
+- Add social share function
+
 [bower]: http://bower.io/
 [browsersync]: http://www.browsersync.io/
 [gulp]: http://gulpjs.com/
