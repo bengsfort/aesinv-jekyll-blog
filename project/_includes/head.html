@@ -26,12 +26,12 @@
   <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
   <meta name="twitter:image:src" content="{{ metaPicture }}" />
   <!-- OpenGraph / FB -->
-  <meta name="og:type" content="website" />
-  <meta name="og:title" content="{{ metaTitle }}" />
-  <meta name="og:site_name" content="{{ site.title }}" />
-  <meta name="og:description" content="{{ metaDescription}}" />
-  <meta name="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
-  <meta name="og:image" content="{{ metaPicture }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{ metaTitle }}" />
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta property="og:description" content="{{ metaDescription}}" />
+  <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+  <meta property="og:image" content="{{ metaPicture }}" />
   <!-- Favicon -->
   <link rel="icon" href="/img/icons/favicon-32x32.ico" />
   <!-- iOS -->
