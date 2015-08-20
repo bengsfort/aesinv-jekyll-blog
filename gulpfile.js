@@ -82,6 +82,8 @@ gulp.task('serve', ['browser'], function() {
   ], function() {
     runSequence('build', ['build:assets', 'browser:reload']);
   });
+
+  gutil.log('Watching for changes.');
 });
 
 gulp.task('deploy', function() {
