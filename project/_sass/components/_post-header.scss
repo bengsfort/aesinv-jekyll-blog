@@ -4,6 +4,9 @@
 
 .feature-header {
     position: relative;
+    overflow: hidden;
+    background: #000;
+
     .post-title {
         position: absolute;
         left: 0;
@@ -16,6 +19,7 @@
         @include media-query($on-laptop) { font-size: 32px; }
         @include media-query($on-palm ) { font-size: 27px; }
     }
+
     &:after {
         content: " ";
         width: 100%;
@@ -50,4 +54,10 @@
             font-size: 0.75em;
         }
     }
+}
+
+.js-scroll-offset {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  transition: transform 0.1s;
 }

@@ -22,26 +22,27 @@ Ideally, this would be handled via a solid [Gulp][] setup that would allow me to
 ## Determining what handles what
 Since Jekyll spins up it's own build as well as a local development server and is required to generate the finished site, it was clearly necessary to determine what should be handling what. Since running the `jekyll serve` command in parallel with Gulp would wind up with the two stepping on each others toes, that idea quickly got thrown out the window in favor for Gulp handling the majority of the legwork while the Jekyll build would be reserved strictly for site generation.
 
-This however caused an issue: out of the box, Jekyll builds the styles from Sass and requires Yaml
+So, let's start with what Jekyll handles out of the box:
 
-So, let's start with what Jekyll handles out of the box
-
-- Sass compilation
+- <del>Sass compilation</del>
 - Markup / Markdown / Data compilation and site generation
-- A local server environment
+- <del>A local server environment</del>
 
-That's all great, but I'd like a little bit more functionality. Let's now look at a complete list of the desired build functionality, and see what can to be supplemented by Gulp.
+Since Gulp will be handling the local server, there's no need to worry about that particular requirement. Gulp can then handle tacking on some extra CSS stuff (such as minification and auto prefixing) after the Jekyll build, as well as all JavaScript and image optimization completely on its own. With this in mind, the Gulp tasks could begin to get scaffolded.
 
-- Sass compilation
-- Style auto-prefixing and minification
-- JavaScript concatenation and minification
-- Automagic image optimization
-- <del>Markup / Markdown / Data compilation and site generation</del>
-- A local server environment
-
-So, out of all of those there is only one task
+- `buildJs`: Concatenate, lint, and minify all JavaScript
+- `buildCss`: Take the built CSS, run it through the auto-prefixer, then minify
+- `buildJekyll`: Utility function/task that uses [child_process.spawn](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options) to run the Jekyll build
+- `optimizeImg`: Run all images through [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) for optimization
+- `build:assets`: Helper task to run `buildJs`, `buildCss`, and `optimizeImg` easily
+- `build`: Run the `buildJekyll` utility function/task with args dictating the non-production `_config.yml` file
+- `build:prod`: Same as `build`, but with args dictating the use of the production `_config.build.yml` file
+- `browser`: Initialize a [BrowserSync](http://browsersync.io) local server
+- `browser:reload`: Reload our BrowserSync local server
+- `server`
 
 [Gulp]: http://gulpjs.com/
 [Jekyll]: http://jekyllrb.com/
 [Ruby]: https://www.ruby-lang.org/en/
 [RVM]: https://rvm.io/
+[Yaml]: http://yaml.org/
