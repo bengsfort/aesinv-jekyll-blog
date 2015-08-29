@@ -1,0 +1,24 @@
+/**
+ * BG Video Box
+ */
+
+ .bg-video-wrap {
+  width: 720px;
+  height: 450px;
+  margin-left: -($spacing-unit + ($spacing-unit / 2));
+  margin-bottom: $spacing-unit;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  video {
+    height: 100%;
+    width: 100%;
+  }
+ }
+
+@include media-query($on-laptop) {
+  .bg-video-wrap video {
+    display: none;
+    visibility: hidden;
+  }
+}

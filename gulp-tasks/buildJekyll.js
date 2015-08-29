@@ -1,19 +1,13 @@
-var spawn         = require('child_process').spawn,
+var exec          = require('child_process').exec,
     /** Utilities */
     gutil         = require('gulp-util');
 
 module.exports = function buildJekyll(callback, env) {
-  var opts = ['build', '--config'];
-  gutil.log('Running Jekyll build.');
+  var cmd = 'jekyll build --config ';
+  cmd += (env === 'prod' ? '_config.build.yml' : '_config.yml');
 
-  if (env === 'prod') opts.push('_config.build.yml');
-  else opts.push('_config.yml');
-
-  var jekyll = spawn('jekyll', opts, {
-    stdio: 'inherit'
-  });
-
-  return jekyll.on('exit', function(code) {
-    return callback(code === 0 ? null : 'ERROR: Jekyll process exited with code: '+code);
+  return exec(cmd, function(error, stdout, stderror) {
+    gutil.log(stdout); // Log the output to the console
+    return callback(error !== null ? 'ERROR: Jekyll process exited with code: '+error.code : null);
   });
 };

@@ -7,10 +7,7 @@ var gulp        = require('gulp'),
     minifyCss     = require('gulp-minify-css'),
     autoprefixer  = require('gulp-autoprefixer'),
     /** Config */
-    config      = require("../package.json");
-
-/** Paths */
-var paths = config.paths;
+    paths      = require("../package.json").paths;
 
 /**
  * CSS

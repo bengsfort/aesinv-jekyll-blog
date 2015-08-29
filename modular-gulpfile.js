@@ -1,0 +1,137 @@
+/**
+ * Main gulpfile for aesinv.com, my Jekyll blog
+ * @todo: refactor and to see if runSequence can be eliminated
+ * https://strongloop.com/strongblog/node-js-callback-hell-promises-generators/
+ */
+
+var gulp          = require('gulp'),
+
+    /** Utils */
+    watch         = require('gulp-watch'),
+    browserSync   = require('browser-sync').create('jekyll'),
+    requireDir    = require('require-dir'),
+    runSequence   = require('run-sequence'),
+    gutil         = require('gulp-util'),
+    gulpAutoTask  = require('gulp-auto-task'),
+
+    /** Config */
+    paths        = require('./package.json').paths;
+
+/** Import Main Tasks */
+// Require them so they can be called as functions
+var utils = requireDir('gulp-tasks');
+// Automagically set up tasks
+gulpAutoTask('{*,**/*}.js', {
+  base: paths.tasks,
+  gulp: gulp
+});
+
+/** Helper Tasks */
+var runTasks = function runTasks(array) {
+  return (function runTask(task, index, arr) {
+    if (arr.length === array.length) return arr;
+
+    gutil.log('Running task '+gutil.colors.red(task));
+
+    var results = utils[task]();
+
+    results.on('error', function(error) {
+      throw new Error("There was an error: "+error);
+    });
+
+    results.on('end', function() {
+      arr.push(true);
+      gutil.log('Task '+gutil.colors.red(task)+' completed.');
+      runTask(array[index + 1], index + 1, arr);
+    });
+  })(array[0], 0, []);
+};
+
+var build = function build(callback) {
+  return utils.buildJekyll(callback, 'serve');
+};
+
+var buildProduction = function buildProduction(callback) {
+  return utils.buildJekyll(callback, 'prod');
+};
+
+var buildAssets = function buildAssets() {
+  return runTasks(['buildCss', 'buildJs', 'optimizeImg']);
+}
+
+// gulp.task('build', function(callback) {
+//   return utils.buildJekyll(callback, 'serve');
+// });
+
+// gulp.task('build:prod', function(callback) {
+//   return utils.buildJekyll(callback, 'prod');
+// });
+
+// gulp.task('build:assets', ['buildCss', 'buildJs', 'optimizeImg']);
+
+/**
+ * BrowserSync
+ */
+// Init server to build directory
+gulp.task('browser', function() {
+  browserSync.init({
+    server: "./" + paths.build,
+  });
+});
+
+// Force reload across all devices
+gulp.task('browser:reload', function() {
+  browserSync.reload();
+});
+
+/**
+ * Main Builds
+ */
+gulp.task('serve', ['browser'], function() {
+
+  runSequence('build', ['build:assets']);
+  // CSS/SCSS
+  watch([
+        paths.src +'fonts/*',
+        paths.sass.src +'*.scss',
+        paths.css.src +'main.scss',
+        paths.sass.src +'**/*.scss',
+  ], function() {
+    runSequence('buildCss', ['browser:reload']);
+  });
+  // JS
+  watch([paths.js.src +'*.js', paths.vendor.src +'*.js'], function() {
+    runSequence('buildJs', ['browser:reload']);
+  });
+  // Images
+  watch([paths.img.src +'*', paths.img.src +'**/*'], function() {
+    runSequence('optimizeImg', ['browser:reload']);
+  });
+  // Markup / Posts/ Data
+  watch([
+        paths.src +'*',
+        paths.src +'_data/*',
+        paths.src +'_plugins/*',
+        paths.src +'**/*.md',
+        paths.src +'**/*.html',
+        paths.src +'**/*.markdown',
+        paths.src +'_includes/**/*.md',
+        paths.src +'_includes/**/*.svg',
+        paths.src +'_includes/**/*.html',
+  ], function() {
+    // runSequence('build', ['build:assets', 'browser:reload']);
+    build({
+      buildAssets();
+      browserSync.reload();
+    });
+  });
+
+  gutil.log('Watching for changes.');
+});
+
+gulp.task('deploy', function() {
+  // runSequence('build:prod', ['build:assets']);
+  buildProduction(function() {
+    buildAssets();
+  });
+});

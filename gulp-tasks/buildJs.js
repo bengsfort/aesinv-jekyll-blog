@@ -7,11 +7,7 @@ var gulp        = require('gulp'),
     concat      = require('gulp-concat'),
     uglify      = require('gulp-uglify'),
 /** Config */
-    config      = require('../package.json');
-
-
-/** Paths */
-var paths = config.paths;
+    paths      = require('../package.json').paths;
 
 /**
  * JavaScript

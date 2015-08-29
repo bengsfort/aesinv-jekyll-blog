@@ -1,6 +1,12 @@
+/**
+ * Main gulpfile for aesinv.com, my Jekyll blog
+ * @todo: see `modular-gulpfile.js` - TO BE MOVED TO SEPARATE BRANCH
+ */
+
 var gulp          = require('gulp'),
 
     /** Utils */
+    lazypipe      = require('lazypipe'),
     watch         = require('gulp-watch'),
     browserSync   = require('browser-sync').create('jekyll'),
     requireDir    = require('require-dir'),
@@ -16,7 +22,7 @@ var gulp          = require('gulp'),
 var utils = requireDir('gulp-tasks');
 // Automagically set up tasks
 gulpAutoTask('{*,**/*}.js', {
-  base: './gulp-tasks',
+  base: paths.tasks,
   gulp: gulp
 });
 
@@ -41,7 +47,7 @@ gulp.task('browser', function() {
   });
 });
 
-// Force reload
+// Force reload across all devices
 gulp.task('browser:reload', function() {
   browserSync.reload();
 });
@@ -62,11 +68,11 @@ gulp.task('serve', ['browser'], function() {
   });
   // JS
   watch([paths.js.src +'*.js', paths.vendor.src +'*.js'], function() {
-    gulp.start('buildJs', ['browser:reload']);
+    runSequence('buildJs', ['browser:reload']);
   });
   // Images
   watch([paths.img.src +'*', paths.img.src +'**/*'], function() {
-    gulp.start('optimizeImg', ['browser:reload']);
+    runSequence('optimizeImg', ['browser:reload']);
   });
   // Markup / Posts/ Data
   watch([

@@ -1,5 +1,5 @@
 # The Blog of Matt Bengston
-This is the source for my blog, located at [aesinv.com](http://aesinv.com). It runs on [Jekyll][], a static-site generator, with added development functionality via [Gulp][].
+This is the source for my blog, located at [aesinv.com](http://aesinv.com). It runs on [Jekyll][], a static-site generator, with added development functionality via [Gulp][]. You can read up on the implementation of Gulp on this [blog post](http://aesinv.com/development/2015/08/19/building-a-gulp-workflow-around-jekyll.html).
 
 ## Dependencies
 - [Bower][]: Front end dependency manager (full integration still WIP)
@@ -54,9 +54,31 @@ project: Main project source
     - img: Published/included image files
         + icons: Site icons (favicons, twitter/og/ms icons)
         + seasonal: Images relating to seasonal settings/components
+        + videos: HTML5 Videos and their fallbacks
     - js: Site scripts
         + lib: Vendor libraries/polyfills included in the project
 ```
+
+## Feature Images
+Each post with a featured image requires two images:
+- Main feature image: `1920x575`
+- Icon: `200x200`
+
+Featured icons can be specified within the [YAML][] front matter block at the top of the post.
+
+```yaml
+---
+feature: post-feature.png # Relative to /project/img
+featureico: post-feature-icon.png # Relative to /project/img
+featurealt: The alt message for the featured image.
+---
+```
+
+## HTML5 Videos
+Videos and a single fall-back image should go within the `project/img/videos` directory, with the following specs:
+- Size: 750px wide (for full-screen captures @ 1920x1080 or 2880x1800, 750px x 450px)
+- Formats: `.mp4`, `.webm`, `.ogv`
+- Fallback: A single image file with the same dimensions and same file name.
 
 ## Hat Tips
 - [Benoît Boucart](http://blog.webbb.be/): Wrote an awesome article on using Jekyll with Gulp, which opened me up to the `child_process.spawn` method.
@@ -65,6 +87,7 @@ project: Main project source
     + Tags icon on post pages: factor[e] design initiative
 
 ## TODO
+- Sticky chapter guide
 - Add "pinned post" functionality (mostly for cars category, for my post engine resource guide)
 - Add tag cloud of sorts to expandable sidebar
 - Add social share function
@@ -78,3 +101,4 @@ project: Main project source
 [noun project]: https://thenounproject.com/
 [ruby]: https://www.ruby-lang.org/en/downloads/
 [rubygems]: https://rubygems.org/pages/download/
+[yaml]: http://yaml.org/

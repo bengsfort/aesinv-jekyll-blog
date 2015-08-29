@@ -14,6 +14,7 @@
   "author": "Matt Bengston <matt@aesinv.com> (http://mattbengston.com)",
   "license": "ISC",
   "paths": {
+    "tasks": "gulp-tasks/",
     "src": "project/",
     "build": "_dist/",
     "bower": "bower_components/",

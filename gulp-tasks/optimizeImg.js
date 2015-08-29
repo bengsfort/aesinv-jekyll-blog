@@ -3,10 +3,7 @@ var gulp        = require('gulp'),
     imagemin    = require('gulp-imagemin'),
     pngquant    = require('imagemin-pngquant'),
     /** Config */
-    config      = require("../package.json");
-
-/** Paths */
-var paths = config.paths;
+    paths      = require("../package.json").paths;
 
 /**
  * Images
