@@ -6,7 +6,6 @@
 var gulp          = require('gulp'),
 
     /** Utils */
-    lazypipe      = require('lazypipe'),
     watch         = require('gulp-watch'),
     browserSync   = require('browser-sync').create('jekyll'),
     requireDir    = require('require-dir'),
