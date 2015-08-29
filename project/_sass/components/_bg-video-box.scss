@@ -2,23 +2,37 @@
  * BG Video Box
  */
 
+ $videoWidth        : 720px;
+ $videoHeight       : 450px;
+ $videoAspectRatio  : $videoHeight / ($videoWidth / 100%); // 16:10
+
  .bg-video-wrap {
-  width: 720px;
-  height: 450px;
+  position: relative;
+  width: $videoWidth;
+  padding-bottom: $videoAspectRatio;
   margin-left: -($spacing-unit + ($spacing-unit / 2));
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit * 2;
   background-size: cover;
   background-repeat: no-repeat;
 
   video {
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
   }
  }
 
 @include media-query($on-laptop) {
-  .bg-video-wrap video {
-    display: none;
-    visibility: hidden;
+  .bg-video-wrap {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: $spacing-unit;
+    video {
+      display: none;
+      visibility: hidden;
+    }
   }
 }
