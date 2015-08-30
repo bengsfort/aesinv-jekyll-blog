@@ -15,6 +15,10 @@ With lists, items in bold are what I have personally used/done on my car.
 
 ## Maintenance Items
 
+### Coolant Temperature Sensor
+
+- Same as Z32 (300ZX) VG30, part number: **SU405**
+
 ### Spark Plugs
 
 - OEM replacements from FSM:
