@@ -3,7 +3,7 @@ layout: default
 isTagPage: true
 ---
 
-<h1 class="page-heading"><a href="/">Posts</a> / All posts tagged <em class="blue">{{ page.tag |  capitalize }}</em></h1>
+<h1 class="page-heading"><a href="/">Posts</a> / All posts tagged <em class="blue">#{{ page.tag | slugify }}</em></h1>
 
 <section class="post-list">
   {% for post in site.tags.[page.tag] %}

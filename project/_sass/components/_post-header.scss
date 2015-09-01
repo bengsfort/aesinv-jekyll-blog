@@ -41,19 +41,31 @@
 
 .post-header,
 .feature-header {
-    &+.excerpt {
-        padding: ($spacing-unit / 2) 0 $spacing-unit;
-        margin-bottom: $spacing-unit / 2;
-        color: #fff;
-        background-color: $brand-blue-color;
+  &+.excerpt {
+    padding: ($spacing-unit / 2) 0 $spacing-unit;
+    margin-bottom: $spacing-unit / 2;
+    color: #fff;
+    background-color: $brand-blue-color;
 
-        .post-date {
-            display: block;
-            color: #dedede;
-            margin-bottom: 8px;
-            font-size: 0.75em;
-        }
+    .post-date,
+    .post-reading-time {
+        display: inline-block;
+        color: #dedede;
+        margin-bottom: 8px;
+        font-size: 0.75em;
     }
+
+    .post-date {
+      margin-right: 1em;
+    }
+
+    .icon-stopwatch {
+      position: relative;
+      top: 1px;
+      width: 16px;
+      height: 16px;
+    }
+  }
 }
 
 .js-scroll-offset {
