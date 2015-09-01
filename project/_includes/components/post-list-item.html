@@ -18,5 +18,6 @@
   <div class="post-info">
     {{ post.date | date: "%b %-d, %Y" }}
     <span class="post-category-label {{ post.category | slugify }}">{{ post.category | capitalize }}</span>
+    {% include svg/stopwatch.svg %}{{ post.content | reading_time }}
   </div>
 </article>

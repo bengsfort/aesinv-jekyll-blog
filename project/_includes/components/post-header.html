@@ -16,7 +16,7 @@
 
 <div class="excerpt">
     <div class="wrapper">
-        <span class="post-date">{{ page.date | date: "%A, %B %-d, %Y" }}</span>
+        <span class="post-date">{{ page.date | date: "%A, %B %-d, %Y" }}</span> <span class="post-reading-time">{% include svg/stopwatch.svg %} Estimated reading time: {{ page.content | reading_time }}</span>
         <p itemprop="description">{{ page.excerpt }}</p>
     </div>
 </div>
