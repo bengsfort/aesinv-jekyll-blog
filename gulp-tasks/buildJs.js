@@ -3,7 +3,7 @@ var gulp        = require('gulp'),
     rename      = require('gulp-rename'),
     size        = require('gulp-filesize'),
   /** JS Specific */
-    jshint      = require('gulp-jshint'),
+    eslint      = require('gulp-eslint'),
     concat      = require('gulp-concat'),
     uglify      = require('gulp-uglify'),
 /** Config */
@@ -30,8 +30,9 @@ module.exports = function buildJs() {
   // Concat files
     .pipe(concat('main.js'))
   // Lint file
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'))
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
   // Minify files and rename
     .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))

@@ -5,7 +5,7 @@ var scrollOffset = (function() {
       $header = document.getElementsByClassName('site-header')[0],
       $nav    = document.getElementById('category-nav');
 
-  if ($els !== null) {
+  if (typeof $els !== "undefined") {
     if ($els.hasOwnProperty('length')) {
       numEls = $els.length;
     } else {

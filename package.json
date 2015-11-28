@@ -57,6 +57,8 @@
     "run-sequence": "^1.1.2"
   },
   "devDependencies": {
-    "browser-sync": "^2.8.2"
+    "browser-sync": "^2.8.2",
+    "gulp-eslint": "^1.0.0",
+    "gulp-sass": "^2.0.4"
   }
 }

@@ -81,6 +81,37 @@ pre {
     }
 }
 
+abbr {
+    color: $brand-blue-color;
+    border-bottom: 1px dashed $brand-blue-color;
+    position: relative;
+    cursor: help;
+    .abbr-tooltip {
+        position: absolute;
+        bottom: 99999px;
+        left: -99999px;
+        transform: translateX(-50%);
+        display: block;
+        width: auto;
+        padding: 0.1em 0.5em;
+        white-space: nowrap;
+        color: #383838;
+        background-color: #f8f8f8;
+        border: 1px solid #f3f3f3;
+        border-bottom: 2px solid $grey-color-light;
+        opacity: 0;
+        transition: opacity 200ms, bottom 1ms 199ms, left 1ms 199ms;
+    }
+    &:hover {
+        .abbr-tooltip {
+            bottom: 100%;
+            left: 50%;
+            opacity: 1;
+            transition: opacity 200ms 1ms, bottom 1ms, left 1ms;
+        }
+    }
+}
+
 /**
  * Paragraphs
  */

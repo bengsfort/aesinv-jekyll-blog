@@ -22,3 +22,22 @@ var expandItem = (function(cls) {
     });
   }
 }());
+
+// CoffeeScript
+/**
+expandItem = (cls = "slide-in") ->
+    $els = document.getElementsByClassName 'js-expand'
+
+    handleClick = (e) ->
+        if e.target != this
+          currTar = e.target.parentElement
+          currTar = currTar.parentElement while currTar != this
+          $tar = document.querySelector currTar.dataset.expand
+        else
+          $tar = document.querySelector e.target.dataset.expand
+        $tar.classList.toggle cls
+
+
+    Array.prototype.forEach.call $els, ($el, i) ->
+        $el.addEventListener "click", handleClick
+*/
