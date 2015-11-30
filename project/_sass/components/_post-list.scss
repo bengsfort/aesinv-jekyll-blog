@@ -7,6 +7,7 @@
     list-style: none;
 
     > article {
+        display: table;
         margin-bottom: $spacing-unit;
     }
 

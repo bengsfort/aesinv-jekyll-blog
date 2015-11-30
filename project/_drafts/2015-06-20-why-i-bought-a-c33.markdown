@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Why I bought an obscure 25 year old imported Japanese sedan instead of a new car"
-date:   2015-06-15 22:31:00
+title:  "Explaining poor automotive decisions: Why I bought an obscure 26 year old car"
+date:   2015-10-25 22:31:00
 category: cars
 tags:
     - C33
@@ -9,47 +9,19 @@ tags:
     - car buying
 feature: c33-article-feature.jpg
 featureico: c33-article-feature-icon.jpg
-featurealt: My new (old) 1990 Nissan C33 Laurel.
-excerpt: When I started looking around for a sedan, I started out with a list of about twelve cars. Ten of which were 10 years old or less, new, and reliable; the other two were 25 years old, rare, and imported from Japan. I went for one of the 25 year old imported cars.
+featurealt: My new (old) 1989 Nissan C33 Laurel.
+excerpt: When my wife and I learned we had a baby on the way, a baby-mobile for me was a hot topic in our household. Normal people would probably go buy some crossover, SUV, or sedan; I decided to go buy an obscure 26 year old car from Japan.
 ---
 
-## The Obvious Choice
-I spent a good week or two going through my magical list of cars to attempt to widdle it down to a more manageable number, and one by one it got shorter and shorter. Some of them got knocked off due to reasons that would be considered by non-gear heads as legitimate, sensible reasons. Some of which were more ridiculous and would only be confirmed by fellow gear heads; particular ones that are fans of wasting as much money as possible on something like racing.
+Spending a lot of time on forums when I was first getting into cars, a commonality I noticed in a lot of for sale threads went along the lines of: _"Well, my wife and I have found out we're expecting our first child and so it's time to sell my car and get something more practical."_ Totally valid, but kind of a bummer; and something I used to think about before I even met my wife. Cars have been an inherit part of who I am ever since I was a little kid playing with my toy car collection and it's something that I hope to pass down to my future son, so I wouldn't want to toss that aside for a little extra trunk space so his stroller can have extra air around it
 
-> "Too expensive to maintain."<br />
-> "Heard horror stories of transmissions and differentials blowing up and being very expensive to replace."<br />
-> "In the real world, really would not be a practical choice."<br />
+One thing I've learned in my short stint as a married car guy is that the second an automotive opportunity presents itself, you have to jump on it. **Especially** when your spouses favorite TV network is HGTV and a baby is going to be in the mix soon. Once we found out we were expecting, the baby-mobile topic came up a lot. It's going to no matter what if you've got a somewhat-unpractical car, and 9 times out of 10 it's going to end with you buying a new car. More often than not that car will be something newer, four doors, at least four seats, big airy cabin with lots of space in the back; the more practical and reliable the better. I didn't do that.
 
-All quite legitimate, sensible reasons. The other side of the spectrum, however...
+## You bought a what?
+While searching around I kept in mind that I wanted to buy something practical but fun, and something I could use to _[enjoy car life](http://shirtstuckedin.com/)_ with my son; a car we could go on fun mountain pass drives and track days with. There were quite a few cars that fit the bill, but a unique opportunity arose to purchase a car fresh off the boat from japan. This is something I've wanted to do for years, but was never in a position to actually make it happen. This time I was in a position, and I wanted to jump on it.
 
-> "Previously had 2 of a car that shares it's chassis, I know I'd get bored real fast. Like, REALLY fast."<br />
-> "Desire to blow all my money on turbo swap way too strong. 10/10 would blow up."<br />
-> "Too boring unless you spend a bunch on motor junk."<br />
+In short, the only way you can legally purchase and legally register a car from overseas that was never sold here (outside of being in the military/airforce and bringing it back with you) is by waiting until the car is [25 years old](http://www.superstreetonline.com/features/1410-how-to-import-a-r32-nissan-skyline-gtr/). This really isn't too much of an issue due to the outstanding condition the majority of road-legal cars out in Japan, but what was an issue was I had no idea if there were any practical cars to choose from that were now legal. There's the standard stuff that the majority of car guys know about; Nissan Skylines, Nissan Silvias, Toyota Supras, kei cars but outside of that the majority of fun, cool sport sedans are relatively low key and not to much information is readily available for them.
 
-All completely ridiculous reasons that only make any sense to someone who likes cars and poor decisions. Regardless, these legitimate and ridiculous reasons both knocked off countless cars from the list, leaving a couple solid options. Two of which stayed on indefinitely, while the rest of the cars got rejected for the exact same reason over and over again:
+Luckily, a friend of mine introduced me to a local importer/dealer that had already imported and sold tons of cool four doors, which gave me a chance to do some research on my options.  I wound up falling in love with a particular type of car, and next thing I knew I was the proud owner of one: A [sixth-generation Nissan Laurel](http://www.nissan-global.com/EN/HERITAGE/laurel_rb20.html), chassis code C33. It's a Club&dot;S model, was born in 1989, has 61,XXX miles on the clock and as far as I'm concerned its airy cabin full of early-90's brown-colored luxury is the absolute perfect baby-mobile.
 
-> "Would be really cool, but I know I'd regret not taking advantage of the opportunity to get one of the old imported classics."
-
-Utterly ridiculous? Yes. Worth it? Yes.
-
-## Cars Stuck in Time
-After I struck all of the sensible and responsible options off of my list, it was time to find the _mature sport sedan_ for me. I already knew where I was going to go to handle all of the logistics, [Japanese Classics LLC](http://www.japaneseclassicsllc.com/), but I had to figure out which of my options was going to be my target: 4 door Nissan R32 Skyline, Nissan C33 Laurel, or Nissan A31 Cefiro. All ridiculous, all legal, yet all so desireable.
-
-## Third Headline
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight javascript %}
-module.exports = function repeat(operation, num) {
-    if (num <= 0) return;
-    operation();
-    return repeat(operation, --num);
-}
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
-
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
+## 90's Soft, Brown Luxury
