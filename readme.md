@@ -87,6 +87,7 @@ Videos and a single fall-back image should go within the `project/img/videos` di
     + Tags icon on post pages: factor[e] design initiative
 
 ## TODO
+- More blog posts, of course! :)
 - Sticky chapter guide
 - Add "pinned post" functionality (mostly for cars category, for my post engine resource guide)
 - Add tag cloud of sorts to expandable sidebar
