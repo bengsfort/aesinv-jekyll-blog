@@ -12,7 +12,7 @@ tags:
 feature: js-game-p1-feature.png
 featureico: js-game-p1-feature-icon.png
 featurealt: The start of our fantastic vidja-game.
-excerpt: Playing video games are fun. JavaScript is fun. So..... Why not both? In this episode, we'll be building a basic game engine as a foundation to build on.
+excerpt: Playing video games is fun. JavaScript is fun. So..... Why not both? In this episode, we'll be building a basic game engine as a foundation to build on.
 ---
 
 Once I started getting into web development my desire to be a game developer got put on the back burner while I continued to explore and build my skills as a web developer. As my experience grew and I began to understand the underlying concepts behind what makes a game it started to come back around again, but instead of using traditional languages I've been having a lot of fun experimenting with video game development with JavaScript.
@@ -36,13 +36,13 @@ I've completed a basic project boilerplate you can download and follow along wit
 Our first order of business will be creating a good project foundation. We could build this entire thing in a single monstrous file, but for the sake of readability and maintainability I'm more a fan of modularity, which is why I've opted to build out the game and its components as modules then bundle them together via [browserify](http://browserify.org/). Let's have a look at our proposed project structure:
 
 
-    index.html /* Loads up game module for game-playing party time. */
-    /js/ /* Main JS root. */
-    - game.js /* Primary game module. Will instantiate and manage all secondary modules. */
-    - core/ /* Contains core "engine"-related modules. */
-    - players/ /* Contains all enemy/character-related modules. */
-    - utils/ /* Contains global constants/utility functions. */
-    - world/ /* Contains the main world classes and all levels */
+    index.html  // Loads up game module for game-playing party time.
+    /js/        // Main JS root.
+    - game.js   // Primary game module.
+    - core/     // Contains core "engine"-related modules.
+    - players/  // Contains all enemy/character-related modules.
+    - utils/    // Contains global constants/utility functions.
+    - world/    // Contains the main world classes and all levels.
 
 
 It's a pretty simple structure, and should be fairly predictable. Our main `game.js` file will require the proper modules from `players/`, `utils/`, `core/`, and `world/` as dependencies, which will in turn require any additional dependencies needed to generate our game. In this part we'll more than likely only touch one (maybe two) files in each directory.
@@ -96,33 +96,33 @@ module.exports = {
 First, we'll need a way to get the correct pixel ratio. To do this we're going to need a canvas context, which we'll use to get the device backing ratio from the backing device backing store. We'll then divide the pixel ratio from the window by that backing ratio, giving us our pixel ratio.
 
 {% highlight javascript linenos %}
-    // /js/utils/utils.canvas.js
+// /js/utils/utils.canvas.js
 
-    /** Determine the proper pixel ratio for the canvas */
-    getPixelRatio : function getPixelRatio(context) {
-      console.log('Determining pixel ratio.');
+/** Determine the proper pixel ratio for the canvas */
+getPixelRatio : function getPixelRatio(context) {
+  console.log('Determining pixel ratio.');
 
-      // I'd rather not have a giant var declaration block,
-      // so I'm storing the props in an array to dynamically
-      // get the backing ratio.
-      var backingStores = [
-        'webkitBackingStorePixelRatio',
-        'mozBackingStorePixelRatio',
-        'msBackingStorePixelRatio',
-        'oBackingStorePixelRatio',
-        'backingStorePixelRatio'
-      ];
+  // I'd rather not have a giant var declaration block,
+  // so I'm storing the props in an array to dynamically
+  // get the backing ratio.
+  var backingStores = [
+    'webkitBackingStorePixelRatio',
+    'mozBackingStorePixelRatio',
+    'msBackingStorePixelRatio',
+    'oBackingStorePixelRatio',
+    'backingStorePixelRatio'
+  ];
 
-      var deviceRatio = window.devicePixelRatio;
+  var deviceRatio = window.devicePixelRatio;
 
-      // Iterate through our backing store props and determine the proper backing ratio.
-      var backingRatio = backingStores.reduce(function(prev, curr) {
-        return (context.hasOwnProperty(curr) ? context[curr] : 1);
-      });
+  // Iterate through our backing store props and determine the proper backing ratio.
+  var backingRatio = backingStores.reduce(function(prev, curr) {
+    return (context.hasOwnProperty(curr) ? context[curr] : 1);
+  });
 
-      // Return the proper pixel ratio by dividing the device ratio by the backing ratio
-      return deviceRatio / backingRatio;
-    },
+  // Return the proper pixel ratio by dividing the device ratio by the backing ratio
+  return deviceRatio / backingRatio;
+},
 {% endhighlight %}
 
 The comments are pretty verbose, but a secondary quick rundown of whats going on:

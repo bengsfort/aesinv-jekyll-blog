@@ -1,6 +1,6 @@
 - name: Import Image Racing Rebuild
   github: false
-  stage: In Dev
+  stage: In Staging
   class: dev
   description: A complete website rebuild for Import Image Racing from the ground up, from wireframes and design to complete custom Magento integration.
 
@@ -9,6 +9,24 @@
   stage: Released
   class: released
   description: A proof of concept Handlebars to JSP Transformer built on Gulp, for those that aren't super stoked on the mighty behemoth that is the Wild West of JSP.
+
+- name: AWS Lambda Toolkit
+  github: https://github.com/aesinv/aws-lambda-toolkit
+  stage: Released
+  class: released
+  description: A small library of AWS Lambda development tools to help make AWS Lambda development easier.
+
+- name: Optimized Averages
+  github: https://github.com/aesinv/optimized-averages
+  stage: Released
+  class: released
+  description: A small utility for calculating optimized averages for estimated beacon distances via bluetooth strength signals.
+
+- name: Image Switcher
+  github: https://github.com/aesinv/image-switcher
+  stage: Released
+  class: released
+  description: A dependency-free active-image-switcher, for use with toggling active images between a number of thumbnails.
 
 - name: JavaScript 8-puzzle Solver
   github: https://github.com/aesinv/javascript-8-puzzle
@@ -23,7 +41,7 @@
   description: An isomorphic leaderboard web app for the video game speed running community, built using React and ExpressJS.
 
 - name: Platformer video game (TBD)
-  github: false
+  github: https://github.com/aesinv/javascript-game-demo
   stage: In Research
   class: research
   description: A side-scrolling platformer video game built on the Unity game engine, with an emphasis on playability and movement technique.
