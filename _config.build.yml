@@ -20,11 +20,11 @@ destination: _dist
 seasonal_assets_url: seasonal/
 
 # Games Done Quick Event
-gdq_event: false
+gdq_event: true
 gdq_name: Awesome Games Done Quick 2016
 gdq_description: >
-  AGDQ a giant gaming party extravaganza and it raises money for Doctors Without Borders, an international medical humanitarian organization providing aid in nearly 70 countries.<br /><br />Please tune in, enjoy the stream, and donate.
-gdq_banner: gdq2015.png
+  AGDQ a giant gaming party extravaganza and it raises money for the Prevent Cancer Foundation.<br /><br />Please tune in, enjoy the stream, and donate.
+gdq_banner: AGDQ2016.jpg
 
 # --------------------------------
 # Social Networking
