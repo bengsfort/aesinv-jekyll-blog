@@ -20,7 +20,7 @@ destination: _dist
 seasonal_assets_url: seasonal/
 
 # Games Done Quick Event
-gdq_event: true
+gdq_event: false
 gdq_name: Awesome Games Done Quick 2016
 gdq_description: >
   AGDQ a giant gaming party extravaganza and it raises money for the Prevent Cancer Foundation.<br /><br />Please tune in, enjoy the stream, and donate.
