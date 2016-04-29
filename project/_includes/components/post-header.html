@@ -6,7 +6,20 @@
             {% if page.featureico %}
               <meta itemprop="thumbnailUrl" content="{{ site.url }}/img/{{ page.feature }}" />
             {% endif %}
-            <img class="post-feature js-scroll-offset" src="/img/{{ page.feature }}" data-distance="150" alt="{{ page.featurealt }}" itemprop="image" />
+            {% assign featureOffset = '' %}
+            {% if page.featureOffset %}
+                {% capture featureOffset %}style="position: relative; top: {{page.featureOffset}}"{% endcapture %}
+            {% endif %}
+
+            {% if page.featureIsVideo %}
+                <video class="post-feature feature-video js-scroll-offset" data-distance="150" poster="/img/{{ page.feature }}" autoplay="" muted="" loop="" {{ featureOffset }}>
+                    <source src="/img/videos/{{ page.featureVidSlugs }}.webm" type="video/webm">
+                    <source src="/img/videos/{{ page.featureVidSlugs }}.mp4" type="video/mp4">
+                    Sorry, your browser doesn't support HTML5 video.
+              </video>
+            {% else %}
+                <img class="post-feature js-scroll-offset" src="/img/{{ page.feature }}" data-distance="150" alt="{{ page.featurealt }}" {{ featureOffset }} itemprop="image" />
+            {% endif %}
         {% else %}
           <meta itemprop="thumbnailUrl" content="{{ site.url }}/img/headshot-thumb.png" />
           <meta itemprop="image" content="{{ site.url }}/img/headshot-hi-res.png" />

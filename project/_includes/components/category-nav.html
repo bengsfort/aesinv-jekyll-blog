@@ -1,5 +1,11 @@
 <nav id="category-nav">
   <div class="wrapper">
+    {% assign allLinkClass = 'class="active" ' %}
+    {% if page.category %}
+      {% assign allLinkClass = '' %}
+    {% endif %}
+    <a {{ allLinkClass }} href="/" rel="home" title="All Posts">All</a>
+
     {% for category in site.categories %}
       {% capture categoryName %}{{category | first }}{% endcapture %}
 
@@ -11,7 +17,7 @@
         {% assign catLinkClass = '' %}
       {% endif %}
 
-      <a {{ catLinkClass }}href="/{{category | first | slugify}}/" rel="tag" title="{{category | first | capitalize}}">{{category | first | capitalize}}</a>
+       / <a {{ catLinkClass }}href="/{{category | first | slugify}}/" rel="tag" title="{{category | first | capitalize}}">{{category | first | capitalize}}</a>
     {% endfor %}
   </div>
 </nav>

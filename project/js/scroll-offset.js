@@ -33,7 +33,6 @@ var scrollOffset = (function() {
 
   var handleScroll = function handleScroll() {
     var top = window.pageYOffset || document.documentElement.scrollTop;
-
     if (top < getStart()) {
         if (getComputedStyle($els).transform == 'matrix(1, 0, 0, 1, 0, 0)') return;
         else return $els.style.transform = 'translateY(0px)';
