@@ -1,14 +1,14 @@
 - name: Import Image Racing Rebuild
   github: false
-  stage: In Staging
-  class: dev
-  description: A complete website rebuild for Import Image Racing from the ground up, from wireframes and design to complete custom Magento integration.
-
-- name: Handlebars to JSP Gulp Compiler
-  github: https://github.com/aesinv/gulp-handlebar-jsp-transpiler
   stage: Released
   class: released
-  description: A proof of concept Handlebars to JSP Transformer built on Gulp, for those that aren't super stoked on the mighty behemoth that is the Wild West of JSP.
+  description: A complete website rebuild for Import Image Racing from the ground up, from wireframes and design to complete custom Magento integration.
+
+- name: Gyroscope Demo
+  github: https://github.com/aesinv/gyroscope-fun
+  stage: In Dev
+  class: dev
+  description: A collection of gyroscope demos both in Unity and the browser.
 
 - name: AWS Lambda Toolkit
   github: https://github.com/aesinv/aws-lambda-toolkit
@@ -22,23 +22,17 @@
   class: released
   description: A small utility for calculating optimized averages for estimated beacon distances via bluetooth strength signals.
 
-- name: Image Switcher
-  github: https://github.com/aesinv/image-switcher
+- name: Handlebars to JSP Gulp Transpiler
+  github: https://github.com/aesinv/gulp-handlebar-jsp-transpiler
   stage: Released
   class: released
-  description: A dependency-free active-image-switcher, for use with toggling active images between a number of thumbnails.
+  description: A proof of concept Handlebars to JSP Transformer built on Gulp, for those that aren't super stoked on the mighty behemoth that is the Wild West of JSP.
 
 - name: JavaScript 8-puzzle Solver
   github: https://github.com/aesinv/javascript-8-puzzle
-  stage: In Dev
+  stage: Beta
   class: dev
   description: A JavaScript solution to the classic 8 puzzle, implementing an A* best search algorithm to complete the puzzle.
-
-- name: Speedrun Leaderboard Webapp
-  github: https://github.com/aesinv/leaderboard-proof-of-concepts/tree/master/react
-  stage: On Hold
-  class: hold
-  description: An isomorphic leaderboard web app for the video game speed running community, built using React and ExpressJS.
 
 - name: Platformer video game (TBD)
   github: https://github.com/aesinv/javascript-game-demo

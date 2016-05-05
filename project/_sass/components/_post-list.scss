@@ -45,9 +45,9 @@
       text-transform: uppercase;
       color: #fff;
       &.development { background-color: $brand-warning; }
-      &.cars { background-color: $brand-green; }
-      &.life { background-color: $brand-yellow; }
-      &.games { background-color: $brand-orange; }
+      // &.cars { background-color: $brand-green; }
+      // &.life { background-color: $brand-yellow; }
+      &.game-dev-log { background-color: $brand-green; }
     }
 
     .icon-stopwatch {

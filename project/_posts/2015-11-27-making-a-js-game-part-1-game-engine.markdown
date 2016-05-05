@@ -21,7 +21,7 @@ There are plenty of existing libraries and foundations for JavaScript game devel
 
 Before we continue, I'd just like to mention that throughout the writing and development of this simple game I'm going to be listening to a live performance from the Legend of Zelda: Symphony of the Goddesses to really get into the spirit of the project. I highly recommend you fire it up and do the same, it's terrific!
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/Vbfc3HAOw7o?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe class="inline-youtube" width="640" height="360" src="https://www.youtube.com/embed/Vbfc3HAOw7o?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ## High-level overview
 

@@ -5,7 +5,16 @@
 .feature-header {
     position: relative;
     overflow: hidden;
+    max-height: 405px;
     background: #000;
+
+    @include media-query($on-phone) {
+        max-height: 150px;
+    }
+
+    .feature-video {
+        width: 100%;
+    }
 
     .post-title {
         position: absolute;

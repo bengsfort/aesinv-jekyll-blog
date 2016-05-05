@@ -141,7 +141,6 @@ blockquote {
 }
 
 
-
 /**
  * Icons
  */
@@ -157,4 +156,13 @@ blockquote {
             fill: $grey-color;
         }
     }
+}
+
+
+/**
+ * Utils
+ */
+
+.inline-youtube {
+    max-width: 100%;
 }
