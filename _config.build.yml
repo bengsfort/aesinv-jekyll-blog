@@ -41,7 +41,7 @@ safe: false
 future: false
 paginate: 5
 show_drafts: false
-highlighter: true
+# highlighter: true
 
 # Category Handling
 category_dir: /
