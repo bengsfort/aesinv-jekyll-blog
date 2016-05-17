@@ -22,12 +22,12 @@ excerpt: Here's a simplified front end architecture that makes development in AE
 >- Create a simplified and optional gulp workflow that will sling updated files to AEM.
 
 
-[AEM (Adobe Experience Manager)][aem] isn't the most front end developer friendly enterprise content management solution out there. It's extremely heavy-handed and dependent on [Maven][mvn] builds that generally don't have access to a lot of the goodies us front end developers have grown accustom to in the instantaneous [Gulp][g] utopia. Out of the box you're dealing with plain-old CSS and having to wait for long builds to finish to see if your 1-line change worked. Who does that anymore?
+[AEM (Adobe Experience Manager)][aem] isn't the most front end developer friendly enterprise content management solution out there. It's extremely heavy-handed and dependent on [Maven][mvn] builds that generally don't have access to a lot of the goodies us front end developers have grown accustom to in the instantaneous [Gulp][g] utopia. Out of the box you're dealing with plain-old CSS and having to wait for long builds to finish to see if your 1-line change worked, who does that anymore?
 
-There are a few solutions to this problem, one being (shameless plug) [Iron (fe)][iron] which is an AEM front end framework I helped out on that includes a component generator. Iron extracts the entire front end code out into a separate, independent space then builds, bundles and pushes your front end to AEM. It works for very complex projects, however it's massive overkill for simple AEM implementations, requires some ramp-up time for devs to get use to its structure, and can also provides complications for back end developers and architects.
+There are a few solutions to this problem, one being (shameless plug) [Iron (fe)][iron] which is an AEM front end framework I helped out on that includes a component generator. Iron extracts the entire front end code out into a separate, independent space then builds, bundles and pushes your front end to AEM. It works for very complex projects however it's massive overkill for simple AEM implementations, requires some ramp-up time for devs to get use to its structure, and can also provides complications for back end developers and architects.
 
 ## A simple solution
-After a lot of discussion with architects, front end devs and some back end devs I came up with a slightly opinionated solution that has worked extremely well on the projects it's been implemented on. It keeps things simple and goes back to the question of _"what exactly is required for this project that AEM cannot provide out of the box?"_
+After trying out a lot of different architectures I came up with a slightly opinionated solution that has worked extremely well so far. It keeps things simple and goes back to the question of _"what exactly is required for this project that AEM cannot provide out of the box?"_
 
 Let's take a look at what this will take care of:
 
@@ -39,7 +39,7 @@ Let's take a look at what this will take care of:
 While that's not a huge list of features it's a good platform to start from for the majority of projects, and provides the bare necessities for efficient and quick front end development while not causing any headaches for architects or back end devs.
 
 ## File Structure
-File structure and location is completely subjective, however I will say that the structure outlined here has provided the most positive feedback from any other front end AEM structure I've worked with. I tried to put everything in predictable locations as one of my biggest pet peeves with AEM is that there are so many different directories it's incredibly difficult to find stuff the majority of the time.
+File structure and location is completely subjective, however I will say that the structure outlined here has been the most pleasant to work with compared to other front end AEM structures I've worked with. I tried to put everything in predictable locations as one of my biggest pet peeves with AEM is that there are so many different directories it's incredibly difficult to find stuff the majority of the time.
 
 ![Front end structure diagram](/img/aem-fe/structure-diagram.png)
 
@@ -113,7 +113,7 @@ It's a pretty typical plugin definition until we get to the configuration block,
 
 Now if we had any code in those directories and we ran a Maven build we'd wind up with a compiled css file and source map wherever we told the compiler to save them. Saucy!
 
-### Setting up some Sass scaffolding 
+### Setting up some Sass scaffolding
 
 I won't go too much in detail in this section, but rather go over some caveats and provide an example of how you could get up and running quickly. The example will include [Bootstrap][bs], but can obviously be altered to use any front end framework such as [Foundation][foundation] or [Semantic UI][semantic].
 
@@ -154,12 +154,12 @@ Now we'll add our main file that will be used by the compiler to compile our sty
 
 // Custom Variables and mixins
 @import "variables";
-@import "mixins"; 
+@import "mixins";
 @import "icons";
 
 // Bootstrap imports
 /*
-  Removing vast majority of them since there are so many, 
+  Removing vast majority of them since there are so many,
   but you essentially just copy the entire `bootstrap.scss`
   file into here with your own overrides scattered in between.
 */
@@ -198,7 +198,7 @@ Now I'll just show some dummy components to give you the idea of how you'll impo
 @import "content/list/list.scss";   // Our new component
 {% endhighlight %}
 
-Then we'd just create the `.scss` file in it's component folder. Easy peazy. 
+Then we'd just create the `.scss` file in it's component folder. Easy peazy.
 
 {% highlight css %}
 // apps/namespace/components/content/list/list.scss
@@ -341,7 +341,7 @@ This should be pretty trivial to anyone who is already well-versed in clientlibs
     <header id="header" data-sly-include="header.html"></header>
     <div id="content" class="container" data-sly-include="content.html"></div>
   </div>
-  
+
   <footer id="footer" data-sly-include="footer.html"></footer>
 
   <sly data-sly-unwrap data-sly-call="${clientLib.js @ categories='namespace-frontend.vendor'}" />
@@ -404,18 +404,18 @@ We then want to specify the paths that we need. This helps readability and maint
 var root        = 'namespace-ui/src/main/content/jcr_root/',
     components  = root + 'apps/namespace/components/',
     designs     = root + 'etc/designs/namespace/',
-    
+
     // Styles
     cssPath     = designs + 'css/',
     sassPath    = designs + 'sass/',
     mainCss     = designs + 'styles/main.scss',
     cssBuild    = cssPath + 'main.css',
     cssSrcMaps  = cssPath + 'main.css.map',
-    
+
     // Scripts
     jsPath      = designs + 'js/',
     vendorPath  = designs + 'vendor/',
-    
+
     // Images
     imgPath     = designs + 'img/';
 {% endhighlight %}
@@ -472,7 +472,7 @@ gulp.task('sass:build', function (cb) {
         }))
         .pipe(plumber.stop())
         .pipe(gulp.dest(cssPath));
-  
+
   // Fire the callback Gulp passes in to tell it we're done
   cb();
 });
@@ -547,33 +547,33 @@ gulp.task('watch', function () {
       sassWatch = gulp.watch([components + '**/*.scss', mainCss, sassPath + '**/*.scss'], ['sass']),
       markupWatch = gulp.watch([components + '**/**/*.html', components + '**/**/*.jsp']),
       imgWatch = gulp.watch([imgPath + '**/*']);
-  
+
   // js needs to be linted
   jsWatch.on('change', function (ev) {
     changeNotification('JS file', ev.type, 'Linting code & slinging to AEM.');
-    
+
     return gulp.src(ev.path)
       .pipe(slang(ev.path));
   });
-  
+
   // Sass needs to get built and slung up
   sassWatch.on('change', function (ev) {
     changeNotification('Sass file', ev.type, 'Running compilation & slinging to AEM.');
   });
 
-  
+
   // Markup just needs to be slung to AEM
   markupWatch.on('change', function (ev) {
     changeNotification('Sightly file', ev.type, 'Slinging file to AEM.');
-    
+
     return gulp.src(ev.path)
       .pipe(slang(ev.path));
   });
-  
+
   // Images just need to be slung to AEM
   imgWatch.on('change', function (ev) {
     changeNotification('Image file', ev.type, 'Slinging file to AEM.');
-    
+
     return gulp.src(ev.path)
       .pipe(slang(ev.path));
   });

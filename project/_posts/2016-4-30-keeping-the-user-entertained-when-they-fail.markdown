@@ -2,7 +2,7 @@
 layout: post
 title:  "Game Dev Log: Keeping the player entertained when they fail"
 date:   2016-04-30 21:22:31
-category: game dev log
+category: game dev
 tags:
   - unity
   - javascript
@@ -23,7 +23,7 @@ I'm quickly discovering that games are just like really complex or unmaintained 
 Considering I want to polish the game as much as possible and have it stand out from other mobile games, some hard cut back to the spawn point was way out of the question. Since the playable character is literally just a ball there's really no fancy animations I can have him do. With that in mind, I came up with the idea of the the camera stopping shortly after falling off but continuing to look in the direction of the player, wherever he is, and then making up for the lack of animations with some UI overlay.
 
 ## Dealing with the physics
-First I had to actually write in the player respawn scripts, which turned out to be the most difficult by far. After creating some large triggers underneath the stage area I wound up wasting a good few hours trying to figure out why my collision events wouldn't fire, but discovered that I hilariously had my console filtered to error messages only. After that revelation things didn't get easier though, as it turns out updating a [Rigidbody](http://docs.unity3d.com/ScriptReference/Rigidbody.html)'s position in Unity when it's under heavy force is more involved than simply updating it's coordinates. 
+First I had to actually write in the player respawn scripts, which turned out to be the most difficult by far. After creating some large triggers underneath the stage area I wound up wasting a good few hours trying to figure out why my collision events wouldn't fire, but discovered that I hilariously had my console filtered to error messages only. After that revelation things didn't get easier though, as it turns out updating a [Rigidbody](http://docs.unity3d.com/ScriptReference/Rigidbody.html)'s position in Unity when it's under heavy force is more involved than simply updating it's coordinates.
 
 Aside from updating positions, it turns out you also need to zero out the objects [velocity](http://docs.unity3d.com/ScriptReference/Rigidbody-velocity.html) so they don't respawn and continue to fly through the air at supersonic speeds. Furthermore, it turns out Unity has a quirk where you also have to deactivate / activate the [Rigidbody](http://docs.unity3d.com/ScriptReference/Rigidbody.html). Without this hard reset the rigidbody can experience some really bizarre and jerky movement patterns after it's been repositioned absolutely via transform rather than physics.
 
@@ -92,7 +92,7 @@ Keeping with the idea of details, I didn't want to just toss in a static text fi
 Thanks to Unity's public variable configuration this was cake. I just set a public variable to be an array of Strings (`String[]`), then in my `Start()` method have it generate a random number between zero and the length of the array, using that number to extract a message from the array and apply it to the text field. Done!
 
 ### Adding the character into the mix
-Creating a variant of the main character to take a render of was extremely fun, and surprisingly didn't take too long. I took his base texture and created an alternate version with far more bummed out eyes and tons of scratches/bruises all over him, tossed it into Unity and snagged a screenshot of him in front of a green cube so I could toss that into Photoshop and get a clean transparent picture. 
+Creating a variant of the main character to take a render of was extremely fun, and surprisingly didn't take too long. I took his base texture and created an alternate version with far more bummed out eyes and tons of scratches/bruises all over him, tossed it into Unity and snagged a screenshot of him in front of a green cube so I could toss that into Photoshop and get a clean transparent picture.
 
 ![The result of the character render](/img/game-respawn/injured-player-resized.png)
 
@@ -122,7 +122,7 @@ public function playerFell() {
 	// Freeze the camera and pause the timer
 	cameraController.freezeCamera();
 	gameTimer.stopTimer();
-	
+
 	// Load the overlay from resources and toss it into the interface canvas
 	var fellOverlay : GameObject = Instantiate(Resources.Load("fell-screen", GameObject));
 	fellOverlay.transform.SetParent(canvas.transform, false);
