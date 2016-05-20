@@ -6,7 +6,7 @@ permalink: /about/
 
 Hey there! My name is **Matt Bengston**, and I'm a **web developer** and **gear head** based out of beautiful **Richmond, VA**.
 
-I currently work as a Senior Front End Developer at [ICF Interactive](http://icfi.com/interactive). I have a passion for innovative content delivery and efficient workflows that make developing more fun, and strive to build remarkable web experiences.
+I currently work as a Senior Front End Developer at [ICF Olson](http://www.icfolson.com/). I have a passion for innovative content delivery and efficient workflows that make developing more fun, and strive to build remarkable web experiences.
 
 I've got experience with a multitude of platforms from WordPress to Magento in PHP land, and even Adobe CQ (AEM) in Java land. I constantly work towards improving task management and efficient workflows to make the development of incredibly dynamic sites easier and more fun.
 

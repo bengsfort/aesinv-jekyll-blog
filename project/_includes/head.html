@@ -7,7 +7,7 @@
     {% elsif page.isTagPage %}{% capture metaTitle %}{{ site.title }} on {{ page.tag | capitalize }}{% endcapture %}
     {% else %}{% capture metaTitle %}{{ page.title }}{% endcapture %}
     {% endif %}
-  {% else %}{% capture metaTitle %}Cars, Development and Life by {{ site.title }}{% endcapture %}
+  {% else %}{% capture metaTitle %}Websites, Development and Games by {{ site.title }}{% endcapture %}
   {% endif %}
   {% capture metaDescription %}{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
   {% if page.feature %}{% capture metaPicture %}{{ "/img/" | prepend: site.baseurl | prepend: site.url }}{{ page.feature }}{% endcapture %}
@@ -40,7 +40,7 @@
   <link rel="apple-touch-icon" sizes="120x120" href="/img/icons/touch-icon-iphone-retina.png" />
   <link rel="apple-touch-icon" sizes="152x152" href="/img/icons/touch-icon-ipad-retina.png" />
   <!-- Windows Phone -->
-  <meta name="application-name" content="Matt Bengston on Websites, Cars, and Games"/>
+  <meta name="application-name" content="Matt Bengston on Development and Games" />
   <meta name="msapplication-TileColor" content="#000000"/>
   <meta name="msapplication-square70x70logo" content="/img/icons/ms-icon-square-70x70.png"/>
   <meta name="msapplication-square150x150logo" content="/img/icons/ms-icon-square-150x150.png"/>
