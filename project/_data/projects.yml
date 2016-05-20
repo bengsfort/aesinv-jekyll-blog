@@ -1,8 +1,8 @@
-- name: Import Image Racing Rebuild
+- name: Roll-a-ball gyroscope game
   github: false
-  stage: Released
-  class: released
-  description: A complete website rebuild for Import Image Racing from the ground up, from wireframes and design to complete custom Magento integration.
+  stage: In Dev
+  class: dev
+  description: A gyroscope-controlled mobile game based on Super Monkey Ball.
 
 - name: Gyroscope Demo
   github: https://github.com/aesinv/gyroscope-fun
@@ -33,6 +33,12 @@
   stage: Beta
   class: dev
   description: A JavaScript solution to the classic 8 puzzle, implementing an A* best search algorithm to complete the puzzle.
+
+- name: Import Image Racing Rebuild
+  github: false
+  stage: Released
+  class: released
+  description: A complete website rebuild for Import Image Racing from the ground up, from wireframes and design to complete custom Magento integration.
 
 - name: Platformer video game (TBD)
   github: https://github.com/aesinv/javascript-game-demo
