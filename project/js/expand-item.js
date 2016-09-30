@@ -1,31 +1,43 @@
-var expandItem = (function(cls) {
-  var $els = document.getElementsByClassName('js-expand');
-  if (typeof cls === "undefined") cls = "slide-in";
+(function (document) {
+    /**
+     * @param {String} cls - The class to toggle on the target element
+     */
+    var expandItem = function(cls) {
+        var $els = document.getElementsByClassName('js-expand');
+        if (typeof cls === 'undefined') cls = 'slide-in';
 
-  function handleClick(e) {
-      e.preventDefault();
-      var $tar;
-      if (e.target !== this) {
-        var currTar = e.target.parentElement;
-        while (currTar !== this) {
-          currTar = currTar.parentElement;
+        function handleClick(e) {
+            e.preventDefault();
+            var $tar;
+            if (e.target !== this) {
+                var currTar = e.target.parentElement;
+                while (currTar !== this) {
+                    currTar = currTar.parentElement;
+                }
+                $tar = document.querySelector(currTar.dataset.expand);
+            } else {
+                $tar = document.querySelector(e.target.dataset.expand);
+            }
+            $tar.classList.toggle(cls);
         }
-        $tar = document.querySelector(currTar.dataset.expand);
-      } else {
-        $tar = document.querySelector(e.target.dataset.expand);
-      }
-      $tar.classList.toggle(cls);
-  }
-  if ($els !== null) {
-    return Array.prototype.forEach.call($els, function($el, i) {
-      $el.addEventListener("click", handleClick);
-    });
-  }
-}());
+
+        if ($els !== null) {
+            return Array.prototype.forEach.call($els, function($el) {
+                $el.addEventListener('click', handleClick);
+            });
+        }
+    };
+
+    if (document.readyState != 'loading') {
+        expandItem();
+    } else {
+        document.addEventListener('DOMContentLoaded', expandItem.bind(this, 'slide-in'));
+    }
+})(document, undefined);
 
 // CoffeeScript
 /**
-expandItem = (cls = "slide-in") ->
+expandItem = (cls = 'slide-in') ->
     $els = document.getElementsByClassName 'js-expand'
 
     handleClick = (e) ->
@@ -39,5 +51,5 @@ expandItem = (cls = "slide-in") ->
 
 
     Array.prototype.forEach.call $els, ($el, i) ->
-        $el.addEventListener "click", handleClick
+        $el.addEventListener 'click', handleClick
 */
